@@ -1,21 +1,19 @@
 package jayuroun.restfullapi.controller.v1;
 
-import org.springframework.stereotype.Controller;
+import jayuroun.core.exception.CUserNotFoundException;
+import jayuroun.restfullapi.repository.MsgCommonImpl;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+
+
 @RestController
-@RequestMapping( value="/global")
 public class MainController {
 
-    private final String X_API_VERSION = new String( "v1.0" );
 
-    @GetMapping( "/version")
-    public String getVersion() {
-        return X_API_VERSION;
-    }
+    @GetMapping( "/global/get" )
+    public String GetUserMsg(@RequestParam String name ) {
+        return name;
 
-    @PostMapping( "/echo" )
-    public String echo( @RequestParam  String message ) {
-        return message;
-    }
+     }
 }

@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests()
                 .antMatchers("/common/test/**").hasRole("USER")
-                .antMatchers("/api-doc/**", "/global/**").permitAll()
+                .antMatchers("/api-doc/**", "/global/**", "/msg/**").permitAll()
 
                 .anyRequest().hasRole("USER") // 그외 나머지 요청은 모두 인증된 회원만 접근 가능
 

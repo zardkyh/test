@@ -24,7 +24,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * =======================================================================
  * DATE                   AUTHOR                NOTE
  * -----------------------------------------------------------------------
- *
+ *d
  */
 
 public interface ConfigRepository extends JpaRepository<Config, String>, ConfigRepositoryCommon {
