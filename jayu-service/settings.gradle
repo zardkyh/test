@@ -1,0 +1,7 @@
+rootProject.name = 'restfull-api-svc'
+include 'auth-module'
+include 'core-module'
+include 'common-module'
+include 'eureka-module'
+include 'gate-module'
+

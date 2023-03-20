@@ -1,0 +1,39 @@
+ifndef::snippet[]
+:snippet: ../../../build/generated-snippets
+endif::[]
+
+
+[[introduction]]
+== 소개
+내용을 입력합니다.
+
+== 요청
+=== [Request Headers]
+include::{snippet}/test-create/request-headers.adoc[]
+
+=== [Request Body]
+include::{snippet}/test-create/request-body.adoc[]
+
+=== [Request Path]
+include::{snippet}/test-create/path-parameters.adoc[]
+
+=== [Request Fields]
+include::{snippet}/test-create/request-fields.adoc[]
+
+
+== 응답
+
+=== [Response Fields]
+include::{snippet}/test-create/response-fields.adoc[]
+
+=== [Response HTTP Example]
+include::{snippet}/test-create/http-response.adoc[]
+
+
+== 테스트 코드
+=== [샘플]
+include::{snippet}/test-create/http-request.adoc[]
+
+include::{snippets}/test-create/curl-request.adoc[]
+
+include::{snippets}/test-create/httpie-request.adoc[]

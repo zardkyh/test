@@ -1,0 +1,56 @@
+= API Document
+test.com
+:doctype: book
+:title-logo-image: image::jnlogo.png[]
+:icons: font
+:imagesdir: ./images
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks: /build/docs/asciidoc/html5/
+:docinfo: shared-head
+
+[[introduction]]
+== 소개
+API Test 코드를 기반으로 RestDocs 문서를 생성해 봅니다.
+
+
+[[introduction]]
+== 서비스환경
+해당 API서비스의 서버 도메인 환경은 다음과 같습니다.
+
+=== Domain
+image::jnlogo.png[]
+|===
+| 환경 | URI
+
+| 개발서버
+| `salt.dev`
+
+| 운영서버
+| `salt.prod`
+|===
+
+<<<
+= 응답코드
+include::./overview.adoc[]
+<<<
+
+
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+:root: ./
+endif::[]
+
+
+//include::./overview.adoc[]
+
+<<<
+= 테스트 조회 API
+include::./test-detail.adoc[]
+<<<
+
+<<<
+= 테스트 생성 API
+include::./test-create.adoc[]
+<<<
