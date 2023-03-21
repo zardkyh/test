@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Builder
 @Data
@@ -20,12 +20,17 @@ public class MsgDto {
 
     private String  echo;
 
+    private LocalDateTime cDate;
+    private LocalDateTime mDate;
+
     public MsgDto( Msg msg ) {
 
         this.seq    = msg.getSeq();
         this.name   = msg.getName();
         this.msg    = msg.getMsg();
         this.echo   = msg.getEcho();
+        this.cDate  = msg.getCreateDate();
+        this.mDate  = msg.getUpdateDate();
     }
 
 }

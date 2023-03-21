@@ -41,7 +41,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @ComponentScan({"jayuroun.core", "jayuroun.restfullapi"})
 // Database를 생성할 Entity를 지정된 패키지에 포함되어있지 않은 Entity의 경우는 테이블이 생성되지 않는다
 @EntityScan("jayuroun")
-@EnableJpaRepositories({"jayuroun.core", "jayuroun.restfullapi"})
+//@EnableJpaRepositories({"jayuroun.core", "jayuroun.restfullapi"})
 public class CommonApplication {
 
 //    @Value("${spring.servlet.multipart.location}")

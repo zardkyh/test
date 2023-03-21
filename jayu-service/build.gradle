@@ -107,11 +107,8 @@ project(':core-module') {
         implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
         implementation group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.3.1'
 
-        // PostgreSQL
-//        runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-
-        // Microsoft SQL Server
-        runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+        // MariaDB
+        runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
         // for QueryDSL
         implementation "com.querydsl:querydsl-core:${queryDslVersion}"
@@ -145,6 +142,9 @@ project(':common-module') {
         implementation 'com.google.code.gson:gson:2.8.5'
         implementation 'io.jsonwebtoken:jjwt:0.9.1'
 
+        // Microsoft SQL Server
+        runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+
         //querydsl
         implementation "com.querydsl:querydsl-core:${queryDslVersion}"
         //querydsl 추가
@@ -160,7 +160,7 @@ project(':common-module') {
         // compileOnly "com.h2database:h2:${h2Version}"
 
         // PostgreSQL
-        runtimeOnly     'org.postgresql:postgresql'
+        //runtimeOnly     'org.postgresql:postgresql'
 
         // 설명
         // asciidoctor
