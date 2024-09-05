@@ -1,29 +1,101 @@
 
 server:
-  port: 8888
+  port: 9988
 
 spring:
-
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
   application:
-    name: restfullmssql
+    name: GCCITY-TRAFFIC
+  profiles:
+    active:
+      - local
 
+#  jpa:
+#    database-platform: org.hibernate.dialect.SQLServer2008Dialect
+#    properties.hibernate:
+##      hbm2ddl.auto: update
+#      hbm2ddl.auto: create-drop
+#      format_sql: true
+#      show_sql: true
+#      use_sql_comments: true
+#    generate-ddl: true
+#    open-in-view: false
+
+datasource-oracle:
+  # Run AWS Env : MSSQL_MASTER_URL=jdbc:sqlserver://ec2-3-36-171-35.ap-northeast-2.compute.amazonaws.com:1433\;databaseName=dzicube\;encrypt=false;MSSQL_MASTER_USERNAME=jayuroun;MSSQL_MASTER_PASSWORD=wkdbfhdns@1234
+  # Run LOCAL Env : MSSQL_MASTER_URL=jdbc:sqlserver://10.0.10.200:6539\;databaseName=dzcorecube\;encrypt=false;MSSQL_MASTER_USERNAME=test;MSSQL_MASTER_PASSWORD=test@1234
+  url: ${MSSQL_MASTER_URL:jdbc:sqlserver://10.0.1.210:6539;databaseName=dzcorecube;encrypt=false}
+  jdbc-url: ${MSSQL_MASTER_URL:jdbc:sqlserver://10.0.1.210:6539;databaseName=dzcorecube;encrypt=false}
+  driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  username: ${MSSQL_MASTER_USERNAME:test}
+  password: ${MSSQL_MASTER_PASSWORD:test@1234}
   jpa:
-    database-platform: org.hibernate.dialect.SQLServer2008Dialect
-    properties.hibernate:
-#      hbm2ddl.auto: update
-      hbm2ddl.auto: create-drop
-      format_sql: true
-      show_sql: true
-      use_sql_comments: true
+    database: sql_server
+    # org.hibernate.dialect.Oracle10gDialect
+    database-platform: com.gccity.traffic.config.CustomSqlServerDialect
+    hibernate:
+      ddl-auto: none
+      proc:
+        param_null_passing: true
+    properties:
+      hibernate:
+        show_sql: true # to System OutDataSourceConfiguration
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          time_zone: Asia/Seoul # @CreatedDate 필드의 Time Zone 값 설정
+        proc:
+          param_null_passing: true  # Procedure 호출 시 파라미터 null 허용 관련 설정
     generate-ddl: true
     open-in-view: false
 
-  datasource:
-    url: jdbc:sqlserver://10.0.10.108:6539;databaseName=test;encrypt=false;
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: test
-    password: test1234
+datasource-mariadb:
+  url: ${DB_MASTER_URL:jdbc:mariadb://localhost:3306/rental?characterEncoding=utf-8}
+  jdbc-url: ${DB_MASTER_URL:jdbc:mariadb://mariadb.easyerp.com:3306/rental?characterEncoding=utf-8}
+  driver-class-name: org.mariadb.jdbc.Driver
+  username: ${DB_MASTER_USERNAME:root}
+  password: ${DB_MASTER_PASSWORD:10041004}
+  jpa:
+    database: sql_server
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: none
+      id:
+        new_generator_mapping: true
+    properties:
+      hibernate:
+        show_sql: true # to System OutDataSourceConfiguration
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          time_zone: Asia/Seoul # @CreatedDate 필드의 Time Zone 값 설정
+    generate-ddl: true
+    open-in-view: false
+
+  main:
+    allow-bean-definition-overriding: true
 
   messages:
     basename: i18n/exception
     encoding: UTF-8
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: INFO
+        type: trace
+    springframework:
+      web: DEBUG
+      data: DEBUG
+    boot:
+      autoconfigure:
+        data:
+          rest: DEBUG
+          jpa: DEBUG
+          orm: DEBUG
+    com.shevelyanchik: DEBUG
+    root: INFO

@@ -1,0 +1,10 @@
+# nexus account
+nexusUsername=test
+nexusPassword=12345
+nexusUrl=https://jayutest.best:41500/repository/easynetworks-public/
+nexusReleaseRepoURL=https://jayutest.best:41500/repository/easynetworks-public/
+nexusSnapshotRepoURL=https://jayutest.best:41500/repository/easynetworks-public/
+
+# docker
+dockerUser=test
+dockerPassword=1234

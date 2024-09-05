@@ -1,8 +1,12 @@
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.0.4'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version "2.7.7"
+    id 'io.freefair.lombok' version "6.6.1"
+    id 'io.spring.dependency-management' version "1.0.15.RELEASE"
+    id "org.asciidoctor.jvm.convert" version '3.3.2'
+    id "org.asciidoctor.jvm.pdf" version '3.3.2'
+    id "com.google.cloud.tools.jib" version '3.1.4'
 }
 
 group = 'com.example'
@@ -27,7 +31,10 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    // Microsoft SQL Server
+    // MariaDB
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
+    // MS-SQL
     runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
 
     // Query DSL 추가
